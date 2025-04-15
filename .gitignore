@@ -1,0 +1,15 @@
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/
+.env
+*.env
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+build/

@@ -1,0 +1,36 @@
+@if (!peliculas)
+{
+  <img src="loading.gif" />
+}
+@else if (peliculas.length === 0)
+{
+  <p>No hay peliculas</p>
+}
+@else
+{
+  @for (pelicula of peliculas; track $index)
+  {
+    <div class="contenedor-pelicula">
+      <div style="display: flex; flex-direction: row; gap: 1rem">
+        <div>
+          <img
+            [src]="pelicula.poster"
+            [alt]="pelicula.titulo"
+            width="169"
+            height="250"
+          />
+        </div>
+        <div>
+          <p>{{ $index }}) Titulo: {{ pelicula.titulo }}</p>
+          <p>
+            Fecha de Lanzamiento:{{
+              pelicula.fechaLanzamiento | date : "dd-MMMM-yyyy"
+            }}
+          </p>
+          <p>Precio: {{ pelicula.precio | currency }}</p>
+          <button (click) = "remover(pelicula)">Remover</button>
+        </div>
+      </div>
+    </div>
+  }
+}
