@@ -1,15 +1,8 @@
-@if (!peliculas)
-{
-  <img src="loading.gif" />
-}
-@else if (peliculas.length === 0)
-{
-  <p>No hay peliculas</p>
-}
-@else
-{
-  @for (pelicula of peliculas; track $index)
-  {
+<button (click)="agregarPelicula()">Agregar pelicula</button>
+
+<app-listado-generico [listado]="peliculas">
+  <ng-container contenido>
+    @for (pelicula of peliculas; track $index) {
     <div class="contenedor-pelicula">
       <div style="display: flex; flex-direction: row; gap: 1rem">
         <div>
@@ -28,9 +21,10 @@
             }}
           </p>
           <p>Precio: {{ pelicula.precio | currency }}</p>
-          <button (click) = "remover(pelicula)">Remover</button>
+          <button (click)="remover(pelicula)">Remover</button>
         </div>
       </div>
     </div>
-  }
-}
+    }
+  </ng-container>
+</app-listado-generico>
